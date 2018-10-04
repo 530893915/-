@@ -10,7 +10,6 @@ def merge_sort(lists):
     if len(lists)<=1:
         return lists
     num = len(lists)//2
-    print(num)
     left = merge_sort(lists[:num])
     right = merge_sort(lists[num:])
     return merge(left,right)
@@ -32,6 +31,4 @@ def merge(left,right):
 
 
 lists = [84, 83, 88, 87, 61, 50, 70, 60, 80]
-print(lists[:3])
-print(lists[3:])
 print(merge_sort(lists))
