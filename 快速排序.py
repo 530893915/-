@@ -2,7 +2,7 @@
 
 def quick_sort(array, left, right):
     if left >= right:
-        return
+        return array
     low = left
     high = right
     key = array[low]
@@ -20,8 +20,8 @@ def quick_sort(array, left, right):
     array[right] = key
     quick_sort(array, low, left - 1)
     quick_sort(array, left + 1, high)
-
+    return array
 
 
 A = [3,7,5,2,3,1]
-quick_sort(A,0,5)
+print(quick_sort(A,0,5))
