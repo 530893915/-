@@ -18,9 +18,9 @@ def shell_sort(array):
             temp = array[i]
             j = i - gap
             while j >= 0 and array[j] > temp:
-                array[j + gap],array[j] = array[j],array[j + gap]
+                array[i],array[j] = array[j],array[i]
                 j -= gap
-        gap = gap // 2
+        gap //= 2
     return array
 
 array = [84,83,88,87,61,50,70,60,80,99]

@@ -5,7 +5,7 @@
 # 这里演示从小到大排序
 def selection_sort(array):
     l = len(array)
-    for i in range(0,l-1):
+    for i in range(l-1):
         minNum = i
         for j in range(i+1,l):
             if array[j] < array[minNum]:

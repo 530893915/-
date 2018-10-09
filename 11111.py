@@ -1,29 +1,25 @@
 #coding:utf8
 
-# Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+def quick_sort(lists,left,right):
+    if left >= right:
+        return lists
 
-class Solution:
-    def reverseList(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
-        if head is None:
-            return None
-        p = head
-        cur = None
-        pre = None
-        while p is not None:
-            cur = p.next
-            p.next = pre
-            pre = p
-            p = cur
-        return pre
+    key = lists[left]
+    low = left
+    high = right
 
+    while left < right:
+        while left < right and lists[right] >= key:
+            right -= 1
+        lists[left] = lists[right]
+        while left < right and lists[left] <= key:
+            left += 1
+        lists[right] = lists[left]
 
-s = Solution()
-print(s.reverseList([2,7,11,15]))
+    lists[left] = key
+    quick_sort(lists,low,left-1)
+    quick_sort(lists,left+1,high)
+    return lists
+
+lists = [84, 83, 88, 87, 61, 50, 70, 60, 80]
+print(quick_sort(lists,0,8))
