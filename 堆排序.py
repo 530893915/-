@@ -20,15 +20,16 @@
 #             adjust_heap(lists,maxs,size)
 #
 # def build_heap(lists,size):
-#     for i in range(0,(size//2))[::-1]:
+#     for i in range(0,(size//2),-1):
 #         adjust_heap(lists,i,size)
 #
 # def heap_sort(lists):
 #     size = len(lists)
 #     build_heap(lists,size)
-#     for i in range(0,size)[::-1]:
+#     for i in range(0,size,-1):
 #         lists[0],lists[i] = lists[i],lists[0]
 #         adjust_heap(lists,0,i)
+#     return lists
 
 def MAX_Heapify(heap,HeapSize,root):#在堆中做结构调整使得父节点的值大于子节点
 
@@ -51,11 +52,12 @@ def Build_MAX_Heap(heap):#构造一个堆，将堆中所有数据重新排序
 def HeapSort(heap):#将根节点取出与最后一位做对调，对前面len-1个节点继续进行对调整过程。
     Build_MAX_Heap(heap)
     for i in range(len(heap)-1,-1,-1):
-        heap[0],heap[i] = heap[i],heap[0]
-        MAX_Heapify(heap, i, 0)
+        heap[0],heap[i] = heap[i],heap[0] # 堆顶与最后一位对换
+        MAX_Heapify(heap, i, 0) #将前面len-1进行堆调整
     return heap
 
 
 
 lists = [3,4,2,8,9,5,1]
 print(HeapSort(lists))
+# print(heap_sort(lists))
