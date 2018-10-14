@@ -1,24 +1,14 @@
 #coding:utf8
 
-def quick_sort(lists,left,right):
-    if left >= right:
-        return lists
+import math
 
-    key = lists[left]
-    low = left
-    high = right
+def sort(lists):
 
-    while left < right:
-        while left < right and lists[right] >= key:
-            right -= 1
-        lists[left] = lists[right]
-        while left < right and lists[left] <= key:
-            left += 1
-        lists[right] = lists[left]
-    lists[left] = key
-    quick_sort(lists,low,left-1)
-    quick_sort(lists,left+1,high)
-    return lists
+
+
+
+
 
 lists = [84, 83, 88, 87, 61, 50, 70, 60, 80]
-print(quick_sort(lists,0,8))
+
+print(sort(lists))

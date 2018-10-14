@@ -20,5 +20,5 @@ def radix_sort(lists,radix=10):
             del z[:]
     return lists
 
-lists = [3,4,2,8,9,5,1]
+lists = [84,83,88,87,61,50,70,60,80,99]
 print(radix_sort(lists))
